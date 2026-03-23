@@ -1,0 +1,361 @@
+{
+  "version": "0.1.0",
+  "name": "prediction_pool",
+  "instructions": [
+    {
+      "name": "createPool",
+      "accounts": [
+        {
+          "name": "creator",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolId",
+          "type": "u64"
+        },
+        {
+          "name": "question",
+          "type": "string"
+        },
+        {
+          "name": "labelA",
+          "type": "string"
+        },
+        {
+          "name": "labelB",
+          "type": "string"
+        },
+        {
+          "name": "entryFeeLamports",
+          "type": "u64"
+        },
+        {
+          "name": "closeTs",
+          "type": "i64"
+        },
+        {
+          "name": "targetPrice",
+          "type": "u64"
+        },
+        {
+          "name": "isOracleEnabled",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "joinPool",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "entry",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "option",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "resolvePool",
+      "accounts": [
+        {
+          "name": "creator",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "winningOption",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "resolveWithPyth",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pythPriceFeed",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "claim",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "pool",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "entry",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Pool",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creator",
+            "type": "publicKey"
+          },
+          {
+            "name": "poolId",
+            "type": "u64"
+          },
+          {
+            "name": "question",
+            "type": "string"
+          },
+          {
+            "name": "labelA",
+            "type": "string"
+          },
+          {
+            "name": "labelB",
+            "type": "string"
+          },
+          {
+            "name": "entryFeeLamports",
+            "type": "u64"
+          },
+          {
+            "name": "closeTs",
+            "type": "i64"
+          },
+          {
+            "name": "status",
+            "type": "u8"
+          },
+          {
+            "name": "winningOption",
+            "type": "u8"
+          },
+          {
+            "name": "totalA",
+            "type": "u64"
+          },
+          {
+            "name": "totalB",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "vaultBump",
+            "type": "u8"
+          },
+          {
+            "name": "targetPrice",
+            "type": "u64"
+          },
+          {
+            "name": "isOracleEnabled",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Entry",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pool",
+            "type": "publicKey"
+          },
+          {
+            "name": "user",
+            "type": "publicKey"
+          },
+          {
+            "name": "option",
+            "type": "u8"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "claimed",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "QuestionTooLong",
+      "msg": "Question too long"
+    },
+    {
+      "code": 6001,
+      "name": "LabelTooLong",
+      "msg": "Label too long"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidEntryFee",
+      "msg": "Invalid entry fee"
+    },
+    {
+      "code": 6003,
+      "name": "CloseTimeMustBeFuture",
+      "msg": "Close time must be in the future"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidOption",
+      "msg": "Invalid option (must be 0 or 1)"
+    },
+    {
+      "code": 6005,
+      "name": "PoolNotOpen",
+      "msg": "Pool is not open"
+    },
+    {
+      "code": 6006,
+      "name": "PoolClosed",
+      "msg": "Pool is closed"
+    },
+    {
+      "code": 6007,
+      "name": "TooEarlyToResolve",
+      "msg": "Too early to resolve"
+    },
+    {
+      "code": 6008,
+      "name": "PoolNotResolved",
+      "msg": "Pool not resolved yet"
+    },
+    {
+      "code": 6009,
+      "name": "AlreadyClaimed",
+      "msg": "Entry already claimed"
+    },
+    {
+      "code": 6010,
+      "name": "NotAWinningEntry",
+      "msg": "Not a winning entry"
+    },
+    {
+      "code": 6011,
+      "name": "NoWinnersOnThatOption",
+      "msg": "No bets on winning option"
+    },
+    {
+      "code": 6012,
+      "name": "MathOverflow",
+      "msg": "Math overflow"
+    },
+    {
+      "code": 6013,
+      "name": "PythError",
+      "msg": "Pyth error"
+    },
+    {
+      "code": 6014,
+      "name": "PriceTooOld",
+      "msg": "Price is too old"
+    },
+    {
+      "code": 6015,
+      "name": "OracleNotEnabled",
+      "msg": "Oracle is not enabled for this pool"
+    }
+  ],
+  "metadata": {
+    "address": "FVKpLYidJUzoNrniNNXaYHuPegBq4FefFhP4zJAGcbaX"
+  }
+}
