@@ -12,7 +12,7 @@ Un mercado de predicciones 100% descentralizado y *trustless* (sin necesidad de 
 
 ## ✨ Características Principales
 
-* **⚡ Resolución Automatizada (Pyth Network):** Crea mercados financieros. El Smart Contract obtiene automáticamente datos en tiempo real de los oráculos de Pyth para declarar al ganador.
+* **⚡ Resolución Automatizada (Pyth Network):** Crea mercados financieros (ej. "¿SOL > $150?"). El Smart Contract obtiene automáticamente datos en tiempo real de los oráculos de Pyth para declarar al ganador.
 * **🤝 Resolución Manual (Modo Social):** Crea pools personalizados para eventos del mundo real (deportes, clima, política) donde el creador del mercado actúa como el juez final.
 * **🔒 Bóvedas On-Chain (Vaults):** La liquidez se bloquea de forma segura en PDAs (Program Derived Addresses). Nadie puede acceder a los fondos hasta que el mercado se resuelva oficialmente.
 * **💸 Pagos Instantáneos:** Los ganadores reclaman sus recompensas proporcionales directamente a sus wallets Phantom inmediatamente después de la resolución.
