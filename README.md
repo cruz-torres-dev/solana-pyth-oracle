@@ -12,16 +12,27 @@ Un mercado de predicciones 100% descentralizado y *trustless* (sin necesidad de 
 
 ## ✨ Características Principales
 
-* **⚡ Resolución Automatizada (Pyth Network):** Crea mercados financieros (ej. "¿SOL > $150?"). El Smart Contract obtiene automáticamente datos en tiempo real e inmutables de los oráculos de Pyth para declarar al ganador.
+* **⚡ Resolución Automatizada (Pyth Network):** Crea mercados financieros. El Smart Contract obtiene automáticamente datos en tiempo real de los oráculos de Pyth para declarar al ganador.
 * **🤝 Resolución Manual (Modo Social):** Crea pools personalizados para eventos del mundo real (deportes, clima, política) donde el creador del mercado actúa como el juez final.
 * **🔒 Bóvedas On-Chain (Vaults):** La liquidez se bloquea de forma segura en PDAs (Program Derived Addresses). Nadie puede acceder a los fondos hasta que el mercado se resuelva oficialmente.
-* **💸 Pagos Instantáneos:** Los ganadores pueden reclamar sus recompensas proporcionales directamente a sus wallets Phantom inmediatamente después de la resolución.
+* **💸 Pagos Instantáneos:** Los ganadores reclaman sus recompensas proporcionales directamente a sus wallets Phantom inmediatamente después de la resolución.
+
+## 📜 Smart Contract (Devnet)
+
+* **Program ID:** `7NLjaEBsWDCXH9cETogmG1WuPnMnQEVyWgEYY5d3YB3g`
+
+### 🔗 Transacciones de Demostración On-Chain
+Pruebas de la ejecución real del contrato en la red Devnet:
+* **Create Pool:** `3T7QcSijCGmCQKkqJDXYK92nENjocsatWXsYcSixV6bLdE48CNfUHcNRMjvsATqScbazEUTHBT2bEvPqaZYRtkn`
+* **Join Pool:** `MpdgQeFxxWFHfEGLBHrp8PZ8y676iy9oKVPdTjCwfoUeVWABqMTrDZyTD8QT6hyYaojoSJ18CDBytivqDSvsCh`
+* **Resolve Pool:** `2KTY5B7az8oTVWQN3x4jBUsFh5HDP1asyQGgBXimcRgFAyP37FpHWTbHDzJvGMUFdmsgKCfQJjfdvyMDGZNLSWFc`
+* **Claim:** `TNgS56z5o7ZTkqGSiZUSKVKokuaR7LPpWG7zJBZc76bFPwjDwAPvcVqE7dEVSBGDdqq3S36MaBDeQxnYLk4VUEP`
 
 ## 🏗️ Arquitectura
 
 1. **Smart Contract (Programas):** Escrito en Rust utilizando el framework Anchor. Maneja la creación de los pools, la lógica de apuestas, la gestión de las bóvedas PDA y la verificación de cuentas de Pyth.
-2. **Frontend:** Construido con React, TypeScript y TailwindCSS. Integra `@solana/wallet-adapter` para una conexión fluida con la wallet Phantom.
-3. **Oráculo:** Integración de `@pythnetwork/pyth-solana-receiver` para obtener *price feeds* (flujos de precios) seguros en Devnet.
+2. **Frontend:** Construido con React, TypeScript y TailwindCSS. Integra `@solana/wallet-adapter` para una conexión fluida.
+3. **Oráculo:** Integración de `@pythnetwork/pyth-solana-receiver` para obtener flujos de precios seguros en Devnet.
 
 ## 🚀 Empezando (Desarrollo Local)
 
@@ -31,9 +42,7 @@ Un mercado de predicciones 100% descentralizado y *trustless* (sin necesidad de 
 * Anchor CLI
 * Node.js & npm
 
-### Instalación
-
-1. **Clona el repositorio:**
-   ```bash
-   git clone [https://github.com/cruz-torres-dev/solana-pyth-oracle.git](https://github.com/cruz-torres-dev/solana-pyth-oracle.git)
-   cd solana-pyth-oracle
+👨‍💻 Autor
+Construido por un Desarrollador Web3 Full-Stack en solitario.
+GitHub: @cruz-torres-dev
+Aviso Legal: Este proyecto fue construido con fines educativos y para hackathons en la Devnet de Solana. No lo utilices con fondos reales en la Mainnet sin una auditoría de seguridad profesional.
