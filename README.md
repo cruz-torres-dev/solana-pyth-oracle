@@ -8,7 +8,7 @@
 
 Un mercado de predicciones 100% descentralizado y *trustless* (sin necesidad de confianza) construido en la blockchain de **Solana**. Esta dApp permite a los usuarios crear, participar y resolver mercados de predicción sin depender de intermediarios centralizados. Utiliza los oráculos de **Pyth Network** para resoluciones financieras automáticas y un modo manual para eventos sociales.
 
-🎥 **[Mira el Video de Demostración Aquí](Añade tu link de YouTube aquí)**
+🎥 **[Mira el Video de Demostración Aquí](https://youtu.be/M_JOscEdWOo?si=Zbe2Bwsk6enDYDjE)**
 
 ## ✨ Características Principales
 
