@@ -42,7 +42,7 @@ Pruebas de la ejecución real del contrato en la red Devnet:
 * Anchor CLI
 * Node.js & npm
 
-👨‍💻 Autor
+### 👨‍💻 Autor
 Construido por un Desarrollador Web3 Full-Stack en solitario.
 GitHub: @cruz-torres-dev
 Aviso Legal: Este proyecto fue construido con fines educativos y para hackathons en la Devnet de Solana. No lo utilices con fondos reales en la Mainnet sin una auditoría de seguridad profesional.
